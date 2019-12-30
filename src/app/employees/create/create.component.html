@@ -1,0 +1,145 @@
+<form novalidate
+  (ngSubmit)="save()"
+  [formGroup]="employeeForm">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="firstNameId">First Name</label>
+      <input class="form-control"
+                 id="firstNameId"
+                 type="text"
+                 placeholder="First Name (required)"
+                 formControlName="firstName"
+                 [ngClass]="{'is-invalid': (employeeForm.get('firstName').touched ||
+                                            employeeForm.get('firstName').dirty) &&
+                                            !employeeForm.get('firstName').valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="employeeForm.get('firstName').errors?.required">
+              Please enter your first name.
+            </span>
+            <span *ngIf="employeeForm.get('firstName').errors?.minlength">
+              The first name must be longer than 3 characters.
+            </span>
+          </span>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="lastNameId">Last Name</label>
+      <input class="form-control"
+                 id="lastNameId"
+                 type="text"
+                 placeholder="Last Name (required)"
+                 formControlName="lastName"
+                 [ngClass]="{'is-invalid': (employeeForm.get('lastName').touched ||
+                                            employeeForm.get('lastName').dirty) &&
+                                            !employeeForm.get('lastName').valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="employeeForm.get('lastName').errors?.required">
+              Please enter your last name.
+            </span>
+            <span *ngIf="employeeForm.get('lastName').errors?.maxlength">
+              The last name must be less than 50 characters.
+            </span>
+          </span>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="phoneNumberId">Phone Number</label>
+      <input class="form-control"
+                   id="phoneNumberId"
+                   type="text"
+                   placeholder="Phone Number (required)"
+                   formControlName="phoneNumber"
+                   [ngClass]="{'is-invalid': (employeeForm.get('phoneNumber').touched ||
+                                              employeeForm.get('phoneNumber').dirty) &&
+                                              !employeeForm.get('phoneNumber').valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="employeeForm.get('phoneNumber').errors?.required">
+                Please enter your Phone Number.
+              </span>
+            </span>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="hireDateId">Hire date</label>
+      <input class="form-control"
+                   id="hireDateId"
+                   type="date"
+                   placeholder="Hire Date"
+                   formControlName="hireDate"
+                   [ngClass]="{'is-invalid': (employeeForm.get('hireDate').touched ||
+                                              employeeForm.get('hireDate').dirty) &&
+                                              !employeeForm.get('hireDate').valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="employeeForm.get('hireDate').errors?.required">
+                Please enter Hire Date.
+              </span>
+            </span>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="employementEndDateId">Employement End Date</label>
+      <input class="form-control"
+                   id="employementEndDateId"
+                   type="Date"
+                   placeholder="Employement End Date"
+                   formControlName="employementEndDate"
+                   [ngClass]="{'is-invalid': (employeeForm.get('employementEndDate').touched ||
+                                              employeeForm.get('employementEndDate').dirty) &&
+                                              !employeeForm.get('employementEndDate').valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="employeeForm.get('employementEndDate').errors?.required">
+                Please enter your Employement End Date.
+              </span>
+            </span>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="cityId">City</label>
+      <input class="form-control"
+                   id="cityId"
+                   type="text"
+                   placeholder="City"
+                   formControlName="city"
+                   [ngClass]="{'is-invalid': (employeeForm.get('city').touched ||
+                                              employeeForm.get('city').dirty) &&
+                                              !employeeForm.get('city').valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="employeeForm.get('city').errors?.required">
+                Please enter City.
+              </span>
+            </span>
+      </div>
+    <div class="form-group col-md-4">
+      <label for="stateId">State</label>
+      <input class="form-control"
+                   id="stateId"
+                   type="text"
+                   placeholder="State"
+                   formControlName="state"
+                   [ngClass]="{'is-invalid': (employeeForm.get('state').touched ||
+                                              employeeForm.get('state').dirty) &&
+                                              !employeeForm.get('state').valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="employeeForm.get('state').errors?.required">
+                Please enter State.
+              </span>
+            </span>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="countryId">Country</label>
+      <input class="form-control"
+                   id="countryId"
+                   type="text"
+                   placeholder="Country"
+                   formControlName="country"
+                   [ngClass]="{'is-invalid': (employeeForm.get('country').touched ||
+                                              employeeForm.get('country').dirty) &&
+                                              !employeeForm.get('country').valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="employeeForm.get('country').errors?.required">
+                Please enter Country.
+              </span>
+            </span>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!employeeForm.valid">Save</button>
+</form>
